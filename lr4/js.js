@@ -3,6 +3,7 @@ function firstTask() {
     console.log(fruits + "\n\n\n\n");
     fruits.pop();
     console.log(fruits);
+    fruits.push('pineapple')
     fruits.sort().reverse();
     console.log(fruits + "\n\n\n\n");
     console.log(fruits.findIndex(function (item) {
@@ -11,10 +12,11 @@ function firstTask() {
 }
 
 function secondTask() {
-    let colours = ['black', 'red', 'magenta'];
+    let colours = ['black', 'red', 'magenta','lightblue'];
     colours.sort((a, b) => a.length - b.length);
 
-
+    colours = colours.filter(item => !item.includes('blue'));
+    console.log(colours)
     console.log(colours[0] + " ----- " + colours[colours.length - 1]);
 
     console.log(colours.slice().join(","));
@@ -75,8 +77,7 @@ function fourthTask() {
         }
     ]
 
-    students = students.filter(student => student.name)
-
+    students = students.filter(student => student.name !== 'Olexiy')
 
     students.push({
         name: 'Lily',
@@ -92,14 +93,14 @@ function fourthTask() {
 function fifthTask() {
     let numbers = [1, 2, 3, 4, 5, 6];
     numbers.map(number => number * number);
-    numbers.filter(number => number % 2 === 0);
+    numbers = numbers.filter(number => number % 2 === 0);
 
     console.log(numbers.reduce((a, b) => a + b, 0));
 
     let secondNumbers = [1, 2, 3, 4, 5]
 
     numbers = numbers.concat(secondNumbers);
-    numbers.splice(0, 3);
+    numbers.splice(numbers.length/2);
     console.log(numbers)
 
 }
@@ -120,7 +121,12 @@ function libraryManagement() {
             pages: 251,
             isAvailable: true
         },
-        {title: "The Lord of the Rings", author: "J.R.R. Tolkien", genre: "fantasy", pages: 1178, isAvailable: true},
+        {
+            title: "The Lord of the Rings",
+            author: "J.R.R. Tolkien",
+            genre: "fantasy",
+            pages: 1178,
+            isAvailable: true}, 
         {title: "To Kill a Mockingbird", author: "Harper Lee", genre: "fiction", pages: 281, isAvailable: true},
         {title: "The Great Gatsby", author: "F. Scott Fitzgerald", genre: "fiction", pages: 180, isAvailable: true},
         {title: "1984", author: "George Orwell", genre: "dystopian fiction", pages: 328, isAvailable: true},
@@ -176,6 +182,15 @@ function libraryManagement() {
             countAvailableBooks + ", кількість взятих книг: " + countBorrowedBooks +
             ", середня кількість сторінок у книзі: " + averagePages + ".";
     }
+    return {
+        addBook,
+        removeBook,
+        findBooksByAuthor,
+        toggleBookAvailability,
+        sortBooksByPages,
+        getBooksStatistics,
+        books
+    };
 }
 
 function seventhTask() {
@@ -188,3 +203,52 @@ function seventhTask() {
     delete student.age;
     console.table(student);
 }
+
+console.log("Завдання 1");
+firstTask();
+console.log("Завдання 2");
+secondTask();
+console.log("Завдання 3");
+thirdTask();
+console.log("Завдання 4");
+fourthTask();
+console.log("Завдання 5");
+fifthTask();
+console.log("Завдання 7");
+seventhTask();
+
+
+console.log("Завдання 6");
+const library = libraryManagement();
+
+//add book
+let newBook = library.addBook("The Hobbit", "J.R.R. Tolkien", "fantasy", 310);
+console.log("Added book: " + newBook.title);
+console.log(library.books);
+
+//remove book
+let titleToDelete = "The Great Gatsby";
+console.log("Removed book: "+ titleToDelete);
+library.removeBook(titleToDelete);
+
+//find by author
+let author = "J.K. Rowling";
+console.log("Books by author: " + author);
+console.log(library.findBooksByAuthor(author));
+
+//Borrowed books
+console.log("Borrowed books:")
+library.toggleBookAvailability("Pride and Prejudice", true);
+library.toggleBookAvailability("The Hobbit", true);
+library.toggleBookAvailability("1984", true);
+
+console.table(library.books);
+
+//sort
+console.log("Sorted books: ")
+library.sortBooksByPages(library.books);
+console.table(library.books);
+
+//statistic
+console.log("Statistics:")
+console.log(library.getBooksStatistics());
