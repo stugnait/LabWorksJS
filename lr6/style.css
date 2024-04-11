@@ -1,0 +1,322 @@
+@font-face {
+    font-family: 'JBM';
+    src: url("./assets/JetBrainsMonoNL-Light.ttf");
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background-image: url("./assets/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: JBM, sans-serif
+}
+
+.header {
+    z-index: 100;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.3px);
+    -webkit-backdrop-filter: blur(7.3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero {
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    font-weight: bolder;
+    color: white;
+    letter-spacing: 25px;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.products {
+    width: 100%;
+    height: 100%;
+}
+
+.products__header {
+    width: 50%;
+    height: 100px;
+    margin: 0 auto;
+    border-bottom: 2px solid #3333;
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products__wrapper {
+
+    width: 95%;
+    margin:  0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.product {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap:25px;
+    align-items: center;
+    margin-top: 25px;
+    width: 400px;
+    height: 600px;
+    outline: 1px solid #3333;
+    flex-direction: column;
+    color: #333;
+    font-weight: bolder;
+
+    background-size: cover;
+}
+
+.product img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    object-fit: contain;
+}
+.product img {
+    transition-duration: 500ms;
+}
+.product:hover img {
+    scale: 1.1;
+}
+.delete {
+    position: absolute;
+    top:25px;
+    right: 25px;
+    font-size: 1.3em;transition-duration: 500ms;
+}
+.delete:hover{
+    scale: 1.5;
+    color: red;
+    cursor: pointer;
+}
+
+
+.edit {
+    position: absolute;
+    top:25px;
+    left: 25px;
+    font-size: 1.3em;
+    transition-duration: 500ms;
+}
+.edit:hover{
+    scale: 1.5;
+    cursor: pointer;
+}
+
+.edit img {
+    height: 16px
+}
+
+
+.modal__wrapper {
+    font-family: JBM, sans-serif;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    box-shadow: #333333 5px 5px 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h2-modal__wrapper{
+    font-family: JBM, sans-serif;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    box-shadow: #333333 5px 5px 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.price-modal__wrapper {
+    font-family: JBM, sans-serif;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    box-shadow: #333333 5px 5px 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.img-modal__wrapper {
+    font-family: JBM, sans-serif;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    box-shadow: #333333 5px 5px 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modal {
+    font-size: 2em;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    flex-direction: column;
+}
+.modal input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 70%;
+    outline: 1px solid #3333;
+    text-align: center;
+}
+input[type='file'] {
+    display: none;
+}
+label[for='image'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 70%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 0.5em;
+}
+label[for='image']:hover {
+    cursor: pointer;
+}
+a:hover {
+    cursor: pointer;
+}
+
+.modal__create_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 70%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 0.5em;
+}
+.modal__create_button:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+    .hero {
+        font-size: 2em;
+    }
+}

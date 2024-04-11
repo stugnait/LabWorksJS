@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 6</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__links">
+                <a onclick="showCreateModal()">Додати</a>
+                <input class="filterInput" oninput="filterByName(event)" type="text">
+
+            </div>
+
+        </nav>
+    </header>
+    <div class="products">
+        <div class="products__wrapper">
+            <div class="product">
+                <img src="./assets/red-converse.png" alt="">
+                <div class="h2">Converse pink</div>
+                <div class="delete">x</div>
+                <div class="edit"><img src="./assets/edit-icon.png" alt=""></div>
+
+            </div>
+            <div class="product">
+
+                <img src="./assets/black-coonverse.png" alt="">
+                <div class="h2">Converse pink</div>
+                <div class="delete">x</div>
+                <div class="edit"><img src="./assets/edit-icon.png" alt=""></div>
+
+            </div>
+
+            <div class="product">
+
+                <img src="./assets/blue-converse.png" alt="">
+                <div class="h2">Converse pink</div>
+                <div class="delete">x</div>
+                <div class="edit"><img src="./assets/edit-icon.png" alt=""></div>
+
+            </div>
+            <div class="product">
+
+                <img src="./assets/pink-converse.png" alt="">
+                <div class="h2">Converse pink</div>
+                <div class="delete">x</div>
+                <div class="edit"><img src="./assets/edit-icon.png" alt=""></div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal__wrapper">
+    <div class="modal">
+
+        <input required class="name" placeholder="Name" type="text">
+
+        <input required class="price" placeholder="Price" type="number">
+
+        <label for="image">Загрузіть картинку</label>
+
+        <input required class="file" id="image" placeholder="image" type="file">
+
+        <button class="modal__create_button" onclick="addProduct()">Cтворити</button>
+
+    </div>
+</div>
+<div class="price-modal__wrapper">
+    <div class="modal">
+        <input required class="change-price" placeholder="Price" type="number">
+        <button class="modal__create_button" onclick="changePrice()"> Змінити ціну</button>
+    </div>
+</div>
+
+<div class="h2-modal__wrapper">
+    <div class="modal">
+
+        <input required class="change-name" placeholder="Name" type="text">
+        <button class="modal__create_button" onclick="changeName()">Змінити назву</button>
+
+    </div>
+</div>
+<div class="img-modal__wrapper">
+    <div class="modal">
+        <label for="change-Image">Загрузіть картинку</label>
+
+        <input required class="file" id="change-Image" placeholder="image" type="file">
+
+        <button class="modal__create_button" onclick="changeImg()">Замінити картинку</button>
+
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
